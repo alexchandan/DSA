@@ -78,11 +78,46 @@ void postorderNonRecursive(Node *root)
     }
 }
 
+// Postorder non recursive method by using two stack
+void postorderNonRec2Stack(Node *root)
+{
+    if (root == nullptr)
+    {
+        return;
+    }
+
+    stack<Node *> s1, s2;
+    s1.push(root);
+    while (!s1.empty())
+    {
+        Node *topNode = s1.top();
+        s1.pop();
+        s2.push(topNode);
+
+        if (topNode->left)
+        {
+            s1.push(topNode->left);
+        }
+
+        if (topNode->right)
+        {
+            s1.push(topNode->right);
+        }
+    }
+
+    while (!s2.empty())
+    {
+        cout << s2.top()->data << " ";
+        s2.pop();
+    }
+}
+
 int main()
 {
     Node *root = NULL;
     root = buildTree(root);
     // postorderRecursive(root);
-    postorderNonRecursive(root);
+    // postorderNonRecursive(root);
+    postorderNonRec2Stack(root);
     return 0;
 }
