@@ -42,7 +42,7 @@ void display(vector<int> arr)
 
 int main()
 {
-    vector<int> arr = {2, 4, 1, 5, 7, 1, 0};
+    vector<int> arr = {2, 4, 1, 5, 7, 1, 0, -23, -4};
     cout << "before sorting the array:" << endl;
     display(arr);
 
